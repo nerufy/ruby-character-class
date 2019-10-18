@@ -1,15 +1,10 @@
 # 勇者 (Hero) のふるまいを表すクラス
-class Hero
-  attr_reader :name, :hp
-  def initialize(name, hp)
-    @name = name
-    @hp = hp
-  end
-  def attack (enemy)
-    enemy.hp -= 2
-    return enemy.hp
-  end
-  def dead?
-    @hp <= 0
+require_relative './character.rb'
+require_relative './attackable.rb'
+
+class Hero < Character
+  include Hitable
+  def hit(enemyhp)
+    enemyhp -= self.hitdamage
   end
 end

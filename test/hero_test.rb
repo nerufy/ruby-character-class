@@ -12,7 +12,7 @@ require_relative '../lib/hero.rb'
 class HeroTest < Minitest::Test
   # Heroクラスのインスタンスが生成(new)できることを確認する
   def setup
-    @hero = Hero.new('ああああ', 50)
+    @hero = Hero.new('ああああ', 50, 10)
 
   end
   def test_name
@@ -22,12 +22,13 @@ class HeroTest < Minitest::Test
     assert_equal(@hero.hp, 50)
   end
   def test_dead
-    hero_hp1 = Hero.new('ああああ', 1)
-    hero_hp0 = Hero.new('ああああ', 0)
-    hero_hpminus = Hero.new('ああああ', -1)
+    hero_hp1 = Hero.new('ああああ', 1, 10)
+    hero_hp0 = Hero.new('ああああ', 0, 10)
+    hero_hpminus = Hero.new('ああああ', -1, 10)
 
     assert_equal(hero_hp1.dead?, false)
     assert_equal(hero_hp0.dead?, true)
     assert_equal(hero_hpminus.dead?, true)
+    assert_equal(hero_hp0.hit, 20)
   end
 end
