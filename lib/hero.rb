@@ -4,7 +4,7 @@ require_relative './attackable.rb'
 
 class Hero < Character
   include Hitable
-  def hit(enemyhp)
-    enemyhp -= self.hitdamage
+  def hit(enemy)
+    enemy.hp -= self.hitdamage
   end
 end
